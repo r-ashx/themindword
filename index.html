@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ASX Clipping Agency | Grow & Earn with Top Creators</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Lucide Icons for Premium UI Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            purple: '#A855F7',
+                            cyan: '#06B6D4',
+                            darkbg: '#0B0F19'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght=400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="text-slate-200 antialiased selection:bg-cyan-500 selection:text-black">
+
+    <!-- Preloader Section -->
+    <div id="loader">
+        <div class="relative flex flex-col items-center">
+            <div class="w-16 h-16 border-4 border-brand-purple/20 border-t-brand-cyan rounded-full animate-spin"></div>
+            <div class="mt-4 text-sm font-semibold tracking-widest text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-cyan-400">ASX AGENCY</div>
+        </div>
+    </div>
+
+    <!-- Background Gradients -->
+    <div class="absolute top-0 left-1/4 w-[500px] h-[500px] bg-brand-purple/10 rounded-full blur-[120px] -z-10 pointer-events-none"></div>
+    <div class="absolute top-[1200px] right-1/4 w-[600px] h-[600px] bg-brand-cyan/5 rounded-full blur-[150px] -z-10 pointer-events-none"></div>
+    <div class="absolute top-[2800px] left-1/3 w-[500px] h-[500px] bg-brand-purple/5 rounded-full blur-[130px] -z-10 pointer-events-none"></div>
+
+    <!-- Navigation Header -->
+    <header class="fixed top-0 inset-x-0 glass-nav z-40 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <!-- Logo -->
+            <a href="#" class="flex items-center gap-2 group">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-brand-purple to-brand-cyan p-[2px]">
+                    <div class="w-full h-full bg-[#05070B] rounded-[10px] flex items-center justify-center">
+                        <span class="text-white font-extrabold text-lg tracking-wider">A</span>
+                    </div>
+                </div>
+                <span class="font-extrabold text-xl tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-white via-slate-200 to-slate-400 group-hover:from-brand-purple group-hover:to-brand-cyan transition-all duration-300">
+                    ASX Clipping Agency
+                </span>
+            </a>
+
+            <!-- Desktop Nav Items -->
+            <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-400">
+                <a href="#about" class="hover:text-white transition-colors">About</a>
+                <a href="#creators" class="hover:text-white transition-colors">Creators</a>
+                <a href="#pricing" class="hover:text-white transition-colors">Rates</a>
+                <a href="#rules" class="hover:text-white transition-colors">Rules</a>
+                <a href="#payment" class="hover:text-white transition-colors">Payments</a>
+                <a href="#contact" class="hover:text-white transition-colors">Contact</a>
+            </nav>
+
+            <!-- Desktop Action Buttons -->
+            <div class="hidden md:flex items-center gap-4">
+                <a href="#creators" class="text-sm font-semibold text-white hover:text-brand-cyan transition-colors">View Creators</a>
+                <a href="#contact" class="px-5 h-11 inline-flex items-center justify-center rounded-full text-sm font-semibold bg-gradient-to-r from-brand-purple to-brand-cyan text-white hover:opacity-90 shadow-lg shadow-brand-purple/20 transition-all transform hover:-translate-y-0.5">Join Now</a>
+            </div>
+
+            <!-- Mobile Menu Toggle Button -->
+            <button id="mobile-menu-btn" class="md:hidden p-2 text-slate-400 hover:text-white focus:outline-none">
+                <i data-lucide="menu" class="w-6 h-6 block" id="menu-icon"></i>
+                <i data-lucide="x" class="w-6 h-6 hidden" id="close-icon"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Dynamic Navigation Dropdown -->
+        <div id="mobile-menu" class="hidden md:hidden glass-card border-x-0 border-b border-white/5 transition-all duration-300">
+            <div class="px-4 pt-2 pb-6 space-y-3 font-medium text-slate-400 text-center">
+                <a href="#about" class="block py-2 hover:text-white transition-colors">About</a>
+                <a href="#creators" class="block py-2 hover:text-white transition-colors">Creators</a>
+                <a href="#pricing" class="block py-2 hover:text-white transition-colors">Rates</a>
+                <a href="#rules" class="block py-2 hover:text-white transition-colors">Rules</a>
+                <a href="#payment" class="block py-2 hover:text-white transition-colors">Payments</a>
+                <a href="#contact" class="block py-2 hover:text-white transition-colors">Contact</a>
+                <div class="pt-4 flex flex-col gap-3 max-w-xs mx-auto">
+                    <a href="#creators" class="py-2.5 rounded-full text-sm font-semibold border border-white/10 text-white hover:bg-white/5 transition-all">View Creators</a>
+                    <a href="#contact" class="py-2.5 rounded-full text-sm font-semibold bg-gradient-to-r from-brand-purple to-brand-cyan text-white shadow-md transition-all">Join Now</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="pt-20">
+        <!-- 1. Hero Section -->
+        <section class="relative min-h-[calc(100vh-80px)] flex items-center justify-center px-4 overflow-hidden">
+            <div class="max-w-4xl mx-auto text-center z-10 py-12">
+                <!-- Tagline Badge -->
+                <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full glass-card border-brand-purple/30 text-xs font-semibold tracking-wider text-brand-cyan mb-6 uppercase animate-pulse">
+                    <i data-lucide="sparkles" class="w-3.5 h-3.5"></i> Now Recruiting Viral Editors
+                </div>
+                
+                <!-- Main Header Heading -->
+                <h1 class="text-4xl sm:text-6xl md:text-7xl font-extrabold tracking-tight text-white mb-6 leading-[1.15]">
+                    Grow with <br>
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-purple via-pink-500 to-brand-cyan">
+                        ASX Clipping Agency
+                    </span>
+                </h1>
+                
+                <!-- Subtext description -->
+                <p class="text-lg sm:text-xl text-slate-400 max-w-2xl mx-auto mb-10 font-medium leading-relaxed">
+                    "Join our clipping team and earn by creating viral clips for top creators."
+                </p>
+                
+                <!-- Action Buttons -->
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                    <a href="#creators" class="w-full sm:w-auto px-8 h-14 inline-flex items-center justify-center rounded-full text-base font-bold bg-gradient-to-r from-brand-purple to-brand-cyan text-white hover:opacity-90 shadow-xl shadow-brand-purple/20 transition-all transform hover:-translate-y-1">
+                        View Creators <i data-lucide="arrow-right" class="w-5 h-5 ml-2"></i>
+                    </a>
+                    <a href="#contact" class="w-full sm:w-auto px-8 h-14 inline-flex items-center justify-center rounded-full text-base font-bold glass-card text-white hover:bg-white/5 transition-all transform hover:-translate-y-1">
+                        Join Now
+                    </a>
+                </div>
+
+                <!-- Animated Stat Counters -->
+                <div class="grid grid-cols-3 gap-4 max-w-xl mx-auto mt-20 pt-8 border-t border-white/5">
+                    <div>
+                        <div class="text-2xl sm:text-3xl font-extrabold text-white" data-target="25">0</div>
+                        <div class="text-xs sm:text-sm text-slate-500 font-medium mt-1">Creators Managed</div>
+                    </div>
+                    <div>
+                        <div class="text-2xl sm:text-3xl font-extrabold text-white" data-target="500">0</div>
+                        <div class="text-xs sm:text-sm text-slate-500 font-medium mt-1">Active Editors</div>
+                    </div>
+                    <div>
+                        <div class="text-2xl sm:text-3xl font-extrabold text-white" data-target="10">0</div>
+                        <div class="text-xs sm:text-sm text-slate-500 font-medium mt-1">M+ Total Views</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. About Section -->
+        <section id="about" class="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 reveal">
+            <div class="glass-card rounded-3xl p-8 md:p-14 relative overflow-hidden">
+                <div class="absolute top-0 right-0 w-64 h-64 bg-gradient-to-bl from-brand-cyan/10 to-transparent rounded-full blur-3xl pointer-events-none"></div>
+                <div class="max-w-3xl mx-auto text-center">
+                    <h2 class="text-xs font-bold uppercase tracking-widest text-brand-purple mb-4">Who We Are</h2>
+                    <p class="text-xl sm:text-2xl md:text-3xl font-semibold leading-relaxed text-slate-200">
+                        «ASX Clipping Agency helps editors earn money by clipping viral content from creators. Follow our clipping rules, submit quality clips, and get paid every week.»
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. Creators Section -->
+        <section id="creators" class="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 reveal">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-white mb-4">Our Featured Creators</h2>
+                <p class="text-slate-400 max-w-xl mx-auto text-sm sm:text-base">Select an active creator to start scaling their content view counts and tracking payouts.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-start">
+                
+                <!-- LIVE Creator Card 1 -->
+                <div class="glass-card rounded-2xl p-6 transition-all duration-300 hover:border-brand-cyan/40 hover:shadow-2xl hover:shadow-brand-cyan/5 flex flex-col group relative overflow-hidden">
+                    <div class="absolute top-0 inset-x-0 h-[2px] bg-gradient-to-r from-transparent via-brand-cyan to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                    <div class="flex items-center justify-between mb-6">
+                        <div class="flex items-center gap-4">
+                            <div class="w-14 h-14 rounded-full ring-2 ring-brand-cyan/40 overflow-hidden bg-slate-800 flex items-center justify-center">
+                                <i data-lucide="user" class="w-6 h-6 text-slate-400"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-lg text-white">Alpha Creator</h3>
+                                <div class="text-xs text-slate-400 mt-0.5">Days: <span class="text-slate-200 font-medium">2–3 Days</span></div>
+                            </div>
+                        </div>
+                        <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-xs font-bold text-emerald-400 tracking-wide uppercase">
+                            <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping"></span> Live
+                        </span>
+                    </div>
+
+                    <!-- Social Channels -->
+                    <div class="mb-6">
+                        <span class="text-xs text-slate-500 font-semibold uppercase block mb-2 tracking-wider">Target Channels</span>
+                        <div class="flex gap-2 flex-wrap text-xs font-semibold text-slate-300">
+                            <span class="px-2.5 py-1 rounded-lg bg-white/5 border border-white/5 flex items-center gap-1"><i data-lucide="instagram" class="w-3.5 h-3.5 text-pink-500"></i> Instagram</span>
+                            <span class="px-2.5 py-1 rounded-lg bg-white/5 border border-white/5 flex items-center gap-1"><i data-lucide="youtube" class="w-3.5 h-3.5 text-red-500"></i> YouTube</span>
+                            <span class="px-2.5 py-1 rounded-lg bg-white/5 border border-white/5 flex items-center gap-1"><i data-lucide="twitter" class="w-3.5 h-3.5 text-sky-400"></i> Twitter (X)</span>
+                            <span class="px-2.5 py-1 rounded-lg bg-white/5 border border-white/5 flex items-center gap-1"><i data-lucide="video" class="w-3.5 h-3.5 text-teal-400"></i> TikTok</span>
+                        </div>
+                    </div>
+
+                    <!-- Pay Rates Table -->
+                    <div class="mb-6 rounded-xl border border-white/5 bg-black/20 overflow-hidden text-xs">
+                        <div class="grid grid-cols-2 bg-white/5 px-4 py-2 text-slate-400 font-bold tracking-wider uppercase">
+                            <div>Views Target</div>
+                            <div class="text-right">Payout Rate</div>
+                        </div>
+                        <div class="divide-y divide-white/5 px-4">
+                            <div class="grid grid-cols-2 py-2"><div>1K</div><div class="text-right font-semibold text-brand-cyan">₹5</div></div>
+                            <div class="grid grid-cols-2 py-2"><div>10K+</div><div class="text-right font-semibold text-brand-cyan">₹50</div></div>
+                            <div class="grid grid-cols-2 py-2"><div>50K</div><div class="text-right font-semibold text-brand-cyan">₹300</div></div>
+                            <div class="grid grid-cols-2 py-2"><div>100K</div><div class="text-right font-semibold text-brand-cyan">₹600</div></div>
+                            <div class="grid grid-cols-2 py-2"><div>200K+</div><div class="text-right font-semibold text-brand-cyan">₹1500</div></div>
+                        </div>
+                    </div>
+
+                    <a href="#contact" class="w-full py-3 inline-flex items-center justify-center rounded-xl text-sm font-bold bg-brand-cyan hover:bg-brand-cyan/90 text-black shadow-lg transition-all mt-auto group-hover:scale-[1.02]">
+                        Start Clipping
+                    </a>
+                </div>
+
+                <!-- LIVE Creator Card 2 -->
+                <div class="glass-card rounded-2xl p-6 transition-all duration-300 hover:border-brand-purple/40 hover:shadow-2xl hover:shadow-brand-purple/5 flex flex-col group relative overflow-hidden">
+                    <div class="absolute top-0 inset-x-0 h-[2px] bg-gradient-to-r from-transparent via-brand-purple to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                    <div class="flex items-center justify-between mb-6">
+                        <div class="flex items-center gap-4">
+                            <div class="w-14 h-14 rounded-full ring-2 ring-brand-purple/40 overflow-hidden bg-slate-800 flex items-center justify-center">
+                                <i data-lucide="user" class="w-6 h-6 text-slate-400"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-lg text-white">Apex Streamer</h3>
+                                <div class="text-xs text-slate-400 mt-0.5">Days: <span class="text-slate-200 font-medium">2–3 Days</span></div>
+                            </div>
+                        </div>
+                        <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-xs font-bold text-emerald-400 tracking-wide uppercase">
+                            <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping"></span> Live
+                        </span>
+                    </div>
+
+                    <!-- Social Channels -->
+                    <div class="mb-6">
+                        <span class="text-xs text-slate-500 font-semibold uppercase block mb-2 tracking-wider">Target Channels</span>
+                        <div class="flex gap-2 flex-wrap text-xs font-semibold text-slate-300">
+                            <span class="px-2.5 py-1 rounded-lg bg-white/5 border border-white/5 flex items-center gap-1"><i data-lucide="instagram" class="w-3.5 h-3.5 text-pink-500"></i> Instagram</span>
+                            <span class="px-2.5 py-1 rounded-lg bg-white/5 border border-white/5 flex items-center gap-1"><i data-lucide="youtube" class="w-3.5 h-3.5 text-red-500"></i> YouTube</span>
+                            <span class="px-2.5 py-1 rounded-lg bg-white/5 border border-white/5 flex items-center gap-1"><i data-lucide="twitter" class="w-3.5 h-3.5 text-sky-400"></i> Twitter (X)</span>
+                            <span class="px-2.5 py-1 rounded-lg bg-white/5 border border-white/5 flex items-center gap-1"><i data-lucide="video" class="w-3.5 h-3.5 text-teal-400"></i> TikTok</span>
+                        </div>
+                    </div>
+
+                    <!-- Pay Rates Table -->
+                    <div class="mb-6 rounded-xl border border-white/5 bg-black/20 overflow-hidden text-xs">
+                        <div class="grid grid-cols-2 bg-white/5 px-4 py-2 text-slate-400 font-bold tracking-wider uppercase">
+                            <div>Views Target</div>
+                            <div class="text-right">Payout Rate</div>
+                        </div>
+                        <div class="divide-y divide-white/5 px-4">
+                            <div class="grid grid-cols-2 py-2"><div>1K</div><div class="text-right font-semibold text-brand-purple">₹5</div></div>
+                            <div class="grid grid-cols-2 py-2"><div>10K+</div><div class="text-right font-semibold text-brand-purple">₹50</div></div>
+                            <div class="grid grid-cols-2 py-2"><div>50K</div><div class="text-right font-semibold text-brand-purple">₹300</div></div>
+                            <div class="grid grid-cols-2 py-2"><div>100K</div><div class="text-right font-semibold text-brand-purple">₹600</div></div>
+                            <div class="grid grid-cols-2 py-2"><div>200K+</div><div class="text-right font-semibold text-brand-purple">₹1500</div></div>
+                        </div>
+                    </div>
+
+                    <a href="#contact" class="w-full py-3 inline-flex items-center justify-center rounded-xl text-sm font-bold bg-brand-purple hover:bg-brand-purple/90 text-white shadow-lg transition-all mt-auto group-hover:scale-[1.02]">
+                        Start Clipping
+                    </a>
+                </div>
+
+                <!-- Coming Soon Card 1 -->
+                <div class="glass-card rounded-2xl p-6 opacity-40 border-dashed border-white/10 flex flex-col pointer-events-none relative">
+                    <div class="flex items-center justify-between mb-6">
+                        <div class="flex items-center gap-4">
+                            <div class="w-14 h-14 rounded-full bg-slate-800 flex items-center justify-center"><i data-lucide="user-x" class="w-6 h-6 text-slate-500"></i></div>
+                            <div>
+                                <h3 class="font-bold text-lg text-slate-400">Creator #3</h3>
+                                <div class="text-xs text-slate-600 mt-0.5">Days: --</div>
+                            </div>
+                        </div>
+                        <span class="px-2.5 py-1 rounded-full bg-white/5 border border-white/10 text-xs font-bold text-slate-500 uppercase tracking-wide">Coming Soon</span>
+                    </div>
+                    <button disabled class="w-full py-3 rounded-xl text-sm font-semibold bg-white/5 text-slate-500 border border-white/5 mt-auto">Disabled</button>
+                </div>
+
+                <!-- Coming Soon Card 2 -->
+                <div class="glass-card rounded-2xl p-6 opacity-40 border-dashed border-white/10 flex flex-col pointer-events-none relative">
+                    <div class="flex items-center justify-between mb-6">
+                        <div class="flex items-center gap-4">
+                            <div class="w-14 h-14 rounded-full bg-slate-800 flex items-center justify-center"><i data-lucide="user-x" class="w-6 h-6 text-slate-500"></i></div>
+                            <div>
+                                <h3 class="font-bold text-lg text-slate-400">Creator #4</h3>
+                                <div class="text-xs text-slate-600 mt-0.5">Days: --</div>
+                            </div>
+                        </div>
+                        <span class="px-2.5 py-1 rounded-full bg-white/5 border border-white/10 text-xs font-bold text-slate-500 uppercase tracking-wide">Coming Soon</span>
+                    </div>
+                    <button disabled class="w-full py-3 rounded-xl text-sm font-semibold bg-white/5 text-slate-500 border border-white/5 mt-auto">Disabled</button>
+                </div>
+
+                <!-- Coming Soon Card 3 -->
+                <div class="glass-card rounded-2xl p-6 opacity-40 border-dashed border-white/10 flex flex-col pointer-events-none relative">
+                    <div class="flex items-center justify-between mb-6">
+                        <div class="flex items-center gap-4">
+                            <div class="w-14 h-14 rounded-full bg-slate-800 flex items-center justify-center"><i data-lucide="user-x" class="w-6 h-6 text-slate-500"></i></div>
+                            <div>
+                                <h3 class="font-bold text-lg text-slate-400">Creator #5</h3>
+                                <div class="text-xs text-slate-600 mt-0.5">Days: --</div>
+                            </div>
+                        </div>
+                        <span class="px-2.5 py-1 rounded-full bg-white/5 border border-white/10 text-xs font-bold text-slate-500 uppercase tracking-wide">Coming Soon</span>
+                    </div>
+                    <button disabled class="w-full py-3 rounded-xl text-sm font-semibold bg-white/5 text-slate-500 border border-white/5 mt-auto">Disabled</button>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- 4. Pricing Section -->
+        <section id="pricing" class="py-24 bg-gradient-to-b from-transparent via-slate-900/40 to-transparent reveal">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-white mb-4">Clipping Payment Rates</h2>
+                    <p class="text-slate-400 max-w-md mx-auto text-sm sm:text-base">Higher viral distribution means greater milestones. Check our baseline conversion pay-rates structure.</p>
+                </div>
+
+                <div class="grid grid-cols-2 md:grid-cols-5 gap-4 sm:gap-6">
+                    <div class="glass-card rounded-2xl p-6 text-center transform hover:-translate-y-2 hover:border-brand-purple/50 transition-all duration-300 flex flex-col justify-between group">
+                        <div>
+                            <div class="text-xs font-bold uppercase tracking-widest text-slate-500 mb-2">Tier 1</div>
+                            <div class="text-xl font-bold text-white mb-4 group-hover:text-brand-purple transition-colors">1K Views</div>
+                        </div>
+                        <div class="text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-white to-slate-400">₹5</div>
+                    </div>
+                    <div class="glass-card rounded-2xl p-6 text-center transform hover:-translate-y-2 hover:border-brand-cyan/50 transition-all duration-300 flex flex-col justify-between group">
+                        <div>
+                            <div class="text-xs font-bold uppercase tracking-widest text-slate-500 mb-2">Tier 2</div>
+                            <div class="text-xl font-bold text-white mb-4 group-hover:text-brand-cyan transition-colors">10K+ Views</div>
+                        </div>
+                        <div class="text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-white to-slate-400">₹50</div>
+                    </div>
+                    <div class="glass-card rounded-2xl p-6 text-center transform hover:-translate-y-2 hover:border-brand-purple/50 transition-all duration-300 flex flex-col justify-between group">
+                        <div>
+                            <div class="text-xs font-bold uppercase tracking-widest text-slate-500 mb-2">Tier 3</div>
+                            <div class="text-xl font-bold text-white mb-4 group-hover:text-brand-purple transition-colors">50K Views</div>
+                        </div>
+                        <div class="text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-white to-slate-400">₹300</div>
+                    </div>
+                    <div class="glass-card rounded-2xl p-6 text-center transform hover:-translate-y-2 hover:border-brand-cyan/50 transition-all duration-300 flex flex-col justify-between group">
+                        <div>
+                            <div class="text-xs font-bold uppercase tracking-widest text-slate-500 mb-2">Tier 4</div>
+                            <div class="text-xl font-bold text-white mb-4 group-hover:text-brand-cyan transition-colors">100K Views</div>
+                        </div>
+                        <div class="text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-white to-slate-400">₹600</div>
+                    </div>
+                    <div class="glass-card rounded-2xl p-6 text-center transform hover:-translate-y-2 hover:border-brand-purple/50 border-brand-purple/30 transition-all duration-300 flex flex-col justify-between col-span-2 md:col-span-1 group">
+                        <div>
+                            <div class="text-xs font-bold uppercase tracking-widest text-brand-purple mb-2">Mega Bonus</div>
+                            <div class="text-xl font-bold text-white mb-4 group-hover:text-brand-purple transition-colors">200K+ Views</div>
+                        </div>
+                        <div class="text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-brand-purple to-brand-cyan">₹1500</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. Clipping Rules Section -->
+        <section id="rules" class="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 reveal">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-white mb-4">Submission Rules</h2>
+                <p class="text-slate-400 max-w-md mx-auto text-sm sm:text-base">Please read and abide by these content criteria rules strictly to secure fast monetization validation.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="glass-card rounded-2xl p-6 flex gap-4 hover:border-white/10 transition-colors">
+                    <div class="w-10 h-10 rounded-xl bg-brand-purple/10 border border-brand-purple/20 flex items-center justify-center shrink-0 text-brand-purple">
+                        <i data-lucide="eye" class="w-5 h-5"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-base text-white mb-1">Rule 1: Minimum Views</h3>
+                        <p class="text-sm text-slate-400 leading-relaxed">Minimum 1K views required for clip submission.</p>
+                    </div>
+                </div>
+                <div class="glass-card rounded-2xl p-6 flex gap-4 hover:border-white/10 transition-colors">
+                    <div class="w-10 h-10 rounded-xl bg-brand-cyan/10 border border-brand-cyan/20 flex items-center justify-center shrink-0 text-brand-cyan">
+                        <i data-lucide="thumbs-up" class="w-5 h-5"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-base text-white mb-1">Rule 2: Engagement Rates</h3>
+                        <p class="text-sm text-slate-400 leading-relaxed">Minimum 0.4% engagement required. <br><span class="text-xs text-brand-cyan mt-1 block">Example: For 1,000 views, at least 4 likes are required.</span></p>
+                    </div>
+                </div>
+                <div class="glass-card rounded-2xl p-6 flex gap-4 hover:border-white/10 transition-colors">
+                    <div class="w-10 h-10 rounded-xl bg-brand-purple/10 border border-brand-purple/20 flex items-center justify-center shrink-0 text-brand-purple">
+                        <i data-lucide="at-sign" class="w-5 h-5"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-base text-white mb-1">Rule 3: Creator Mentions</h3>
+                        <p class="text-sm text-slate-400 leading-relaxed">Caption must include the creator's tag/mention.</p>
+                    </div>
+                </div>
+                <div class="glass-card rounded-2xl p-6 flex gap-4 hover:border-white/10 transition-colors">
+                    <div class="w-10 h-10 rounded-xl bg-brand-cyan/10 border border-brand-cyan/20 flex items-center justify-center shrink-0 text-brand-cyan">
+                        <i data-lucide="map-pin" class="w-5 h-5"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-base text-white mb-1">Rule 4: Geotargeting Location</h3>
+                        <p class="text-sm text-slate-400 leading-relaxed">Location must be set to any USA location (for example: Florida, California, Texas, New York, etc.).</p>
+                    </div>
+                </div>
+                <div class="glass-card rounded-2xl p-6 flex gap-4 hover:border-white/10 transition-colors">
+                    <div class="w-10 h-10 rounded-xl bg-brand-purple/10 border border-brand-purple/20 flex items-center justify-center shrink-0 text-brand-purple">
+                        <i data-lucide="shield-check" class="w-5 h-5"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-base text-white mb-1">Rule 5: Original Output Only</h3>
+                        <p class="text-sm text-slate-400 leading-relaxed">Only original, high-quality clips will be accepted.</p>
+                    </div>
+                </div>
+                <div class="glass-card rounded-2xl p-6 flex gap-4 hover:border-white/10 transition-colors">
+                    <div class="w-10 h-10 rounded-xl bg-red-500/10 border border-red-500/20 flex items-center justify-center shrink-0 text-red-400">
+                        <i data-lucide="alert-triangle" class="w-5 h-5"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-base text-white mb-1">Rule 6: Anti-Spam Clause</h3>
+                        <p class="text-sm text-slate-400 leading-relaxed">Spam, copied, or reused clips will be rejected.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. Payment Section -->
+        <section id="payment" class="py-24 bg-gradient-to-b from-transparent via-purple-950/10 to-transparent reveal">
+            <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="glass-card rounded-3xl p-8 md:p-12 border-brand-purple/20 relative overflow-hidden">
+                    <div class="absolute -bottom-10 -right-10 w-48 h-48 bg-brand-purple/10 rounded-full blur-2xl"></div>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
+                        <div class="md:col-span-1">
+                            <h2 class="text-2xl sm:text-3xl font-extrabold text-white mb-3">Payment Information</h2>
+                            <p class="text-xs text-slate-400 font-medium uppercase tracking-wider">Fast & Secure Distribution</p>
+                        </div>
+                        <div class="md:col-span-2 space-y-4 font-medium text-slate-300">
+                            <div class="flex items-start gap-3">
+                                <i data-lucide="calendar" class="w-5 h-5 text-brand-cyan mt-0.5 shrink-0"></i>
+                                <span>Payments are made every week.</span>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <i data-lucide="clock" class="w-5 h-5 text-brand-cyan mt-0.5 shrink-0"></i>
+                                <span>Payment is processed 4 days after the weekend.</span>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <i data-lucide="check-circle" class="w-5 h-5 text-brand-cyan mt-0.5 shrink-0"></i>
+                                <span>Only approved clips are eligible for payment.</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 7. Platforms Section -->
+        <section class="py-16 border-y border-white/5 bg-black/20 reveal">
+            <div class="max-w-5xl mx-auto px-4 text-center">
+                <h3 class="text-xs font-bold tracking-widest text-slate-500 uppercase mb-8">Supported Streaming Platforms</h3>
+                <div class="flex flex-wrap items-center justify-center gap-8 sm:gap-16 opacity-70">
+                    <div class="flex items-center gap-2 text-sm sm:text-base font-bold text-white">
+                        <i data-lucide="instagram" class="w-6 h-6 text-pink-500"></i> Instagram
+                    </div>
+                    <div class="flex items-center gap-2 text-sm sm:text-base font-bold text-white">
+                        <i data-lucide="youtube" class="w-6 h-6 text-red-500"></i> YouTube
+                    </div>
+                    <div class="flex items-center gap-2 text-sm sm:text-base font-bold text-white">
+                        <i data-lucide="video" class="w-6 h-6 text-teal-400"></i> TikTok
+                    </div>
+                    <div class="flex items-center gap-2 text-sm sm:text-base font-bold text-white">
+                        <i data-lucide="twitter" class="w-6 h-6 text-white"></i> Twitter (X)
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 8. Contact Section -->
+        <section id="contact" class="py-24 max-w-4xl mx-auto px-4 reveal">
+            <div class="glass-card rounded-3xl p-8 md:p-12 text-center border-brand-cyan/20">
+                <h2 class="text-3xl font-extrabold text-white mb-2">ASX Clipping Agency</h2>
+                <p class="text-sm text-slate-400 mb-8 max-w-md mx-auto">Get in touch to secure your onboarding slot or check modern platform submission portals.</p>
+                
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 text-sm font-semibold">
+                    <div class="p-4 rounded-xl bg-white/5 border border-white/5 flex flex-col items-center gap-2">
+                        <i data-lucide="message-square" class="w-6 h-6 text-indigo-400"></i>
+                        <span class="text-slate-400 font-medium">Discord</span>
+                        <span class="text-xs px-2 py-0.5 rounded bg-white/10 text-slate-400">Coming Soon</span>
+                    </div>
+                    <div class="p-4 rounded-xl bg-white/5 border border-white/5 flex flex-col items-center gap-2">
+                        <i data-lucide="send" class="w-6 h-6 text-sky-400"></i>
+                        <span class="text-slate-400 font-medium">Telegram</span>
+                        <span class="text-xs px-2 py-0.5 rounded bg-white/10 text-slate-400">Coming Soon</span>
+                    </div>
+                    <div class="p-4 rounded-xl bg-white/5 border border-white/5 flex flex-col items-center gap-2">
+                        <i data-lucide="mail" class="w-6 h-6 text-brand-cyan"></i>
+                        <span class="text-slate-400 font-medium">Email Support</span>
+                        <a href="mailto:comingsoon@example.com" class="text-brand-cyan hover:underline text-xs tracking-tight">comingsoon@example.com</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- 9. Footer Section -->
+    <footer class="border-t border-white/5 py-8 text-center text-xs text-slate-500 font-medium">
+        <p>&copy; 2026 ASX Clipping Agency. All Rights Reserved.</p>
+    </footer>
+
+    <!-- Back to Top Trigger Button -->
+    <button id="back-to-top" class="fixed bottom-6 right-6 p-3 rounded-full bg-brand-purple text-white shadow-xl shadow-brand-purple/20 opacity-0 visibility-hidden transition-all duration-300 hover:scale-110 z-50 focus:outline-none">
+        <i data-lucide="arrow-up" class="w-5 h-5"></i>
+    </button>
+
+    <script src="app.js"></script>
+</body>
+</html>
